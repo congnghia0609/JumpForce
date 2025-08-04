@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
+    public List<GameObject> listObstacles = new List<GameObject>();
     private Vector3 spawnPos = new Vector3(30, 0, 0);
     private float startDelay = 2.0f;
     private float repeatRate = 2.0f;
@@ -25,9 +25,10 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {
-        if (gameManager.gameOver == false)
+        if (!gameManager.gameOver)
         {
-            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            int index = Random.Range(0, listObstacles.Count);
+            Instantiate(listObstacles[index], spawnPos, listObstacles[index].transform.rotation);
         }
     }
 }
