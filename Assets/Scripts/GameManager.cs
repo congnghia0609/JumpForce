@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text bestScoreText;
     [SerializeField] private TMP_Text scoreText;
     public bool gameOver = true;
+    public float baseSpeed = 15.0f;
+    public int levelNum = 10;
+    public int levelSpeed = 2;
+    public float speed = 15.0f;
     public int score = 0;
 
     // Start is called before the first frame update
@@ -63,6 +67,13 @@ public class GameManager : MonoBehaviour
     {
         score += i;
         UpdateScore();
+        UpdateSpeed();
+    }
+
+    public void UpdateSpeed()
+    {
+        // Khi vượt qua 10 rào thì tăng speed lên 1 đơn vị.
+        speed = baseSpeed + score / levelNum * levelSpeed;
     }
 
     public void UpdateScore()
