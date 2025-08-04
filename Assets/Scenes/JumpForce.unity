@@ -996,7 +996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 2115975111}
   replayButton: {fileID: 32012437}
-  guideText: {fileID: 1920632629}
+  guideText: {fileID: 1920632631}
   bestScoreText: {fileID: 1301683194}
   scoreText: {fileID: 638976596}
   gameOver: 1
@@ -1123,7 +1123,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
