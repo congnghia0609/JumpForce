@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameManager.gameOver)
+        if (IsTap() && isOnGround && !gameManager.gameOver)
         {
             isOnGround = false;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -43,6 +43,26 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
+    }
+
+    public bool IsTap()
+    {
+        // Kiểm tra nếu có ít nhất một ngón tay chạm vào màn hình.
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            // Khi người dùng chạm (tap) bắt đầu.
+            if (touch.phase == TouchPhase.Began)
+            {
+                return true;
+            }
+        }
+        // (Tùy chọn) Hỗ trợ nhảy khi nhấn chuột hoặc phím Space khi test trên PC.
+        if (Application.isEditor && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        {
+            return true;
+        }
+        return false;
     }
 
     void OnCollisionEnter(Collision collision)
