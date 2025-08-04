@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // OutlineText();
+        
     }
 
     // Update is called once per frame
@@ -30,36 +30,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
-    // void OutlineText()
-    // {
-    //     if (bestScoreText != null)
-    //     {
-    //         // Tạo một bản sao material để không ảnh hưởng đến các TMP khác
-    //         Material newMatWhite = new Material(bestScoreText.fontSharedMaterial);
-    //         newMatWhite.EnableKeyword("OUTLINE_ON");
-    //         newMatWhite.SetColor("_OutlineColor", Color.white);
-    //         // newMatWhite.SetColor("_OutlineColor", Color.white.WithAlpha(0.9f));
-    //         newMatWhite.SetFloat("_OutlineWidth", 0.1f);
-    //         // Áp material mới có outline
-    //         bestScoreText.fontSharedMaterial = newMatWhite;
-    //         if (scoreText != null)
-    //         {
-    //             scoreText.fontSharedMaterial = newMatWhite;
-    //         }
-    //     }
-    //     if (guideText != null)
-    //     {
-    //         // Tạo một bản sao material để không ảnh hưởng đến các TMP khác
-    //         Material newMatBlack = new Material(guideText.fontSharedMaterial);
-    //         newMatBlack.EnableKeyword("OUTLINE_ON");
-    //         // newMatBlack.SetColor("_OutlineColor", Color.black);
-    //         newMatBlack.SetColor("_OutlineColor", Color.black.WithAlpha(0.7f));
-    //         newMatBlack.SetFloat("_OutlineWidth", 0.2f);
-    //         // Áp material mới có outline
-    //         guideText.fontSharedMaterial = newMatBlack;
-    //     }
-    // }
 
     public void AddScore(int i)
     {
