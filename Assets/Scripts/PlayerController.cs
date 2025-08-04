@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
             Physics.gravity *= gravityModifier;
             gravityInitialized = true;
         }
+        gameManager.UpdateBestScore();
     }
 
     // Update is called once per frame

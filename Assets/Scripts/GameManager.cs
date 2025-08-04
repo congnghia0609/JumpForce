@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playButton; // Gán trong Inspector
     [SerializeField] private GameObject replayButton; // Gán trong Inspector
     [SerializeField] private GameObject guideText; // Gán trong Inspector
+    [SerializeField] private TMP_Text bestScoreText;
+    [SerializeField] private TMP_Text scoreText;
     public bool gameOver = true;
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,22 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AddScore(int i)
+    {
+        score += i;
+        UpdateScore();
+    }
+
+    public void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
+    }
+
+    public void UpdateBestScore()
+    {
+        bestScoreText.text = "Best Score: " + DataManager.Instance.gameData.BestScore;
     }
 
     // Gọi khi để bắt đầu game.
@@ -37,6 +56,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
+        // Update best score.
+        if (score > DataManager.Instance.gameData.BestScore)
+        {
+            DataManager.Instance.gameData.BestScore = score;
+            UpdateBestScore();
+            DataManager.Instance.Save();
+        }
         // Hiện nút chơi lại
         replayButton.SetActive(true);
         playButton.SetActive(false);
