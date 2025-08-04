@@ -15,14 +15,12 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier = 2.0f;
     private static bool gravityInitialized = false;
     public bool isOnGround = true;
-    public bool gameOver = false;
     private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("ReplayButton").GetComponent<GameManager>();
-        gameManager.gameObject.SetActive(false);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
@@ -37,7 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameManager.gameOver)
         {
             isOnGround = false;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -53,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
-            if (!gameOver)
+            if (!gameManager.gameOver)
             {
                 dirtParticle.Play();
             }
@@ -62,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             // Debug.Log("Game Over!");
             // Tránh hiện tượng lặp lại sự kiện Game Over nhiều lần.
-            if (!gameOver)
+            if (!gameManager.gameOver)
             {
                 playerAnim.SetBool("Death_b", true);
                 playerAnim.SetInteger("DeathType_int", 1);
@@ -71,7 +69,6 @@ public class PlayerController : MonoBehaviour
                 dirtParticle.Stop();
                 gameManager.GameOver();
             }
-            gameOver = true;
         }
     }
 }
