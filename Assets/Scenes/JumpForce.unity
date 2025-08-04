@@ -1000,6 +1000,10 @@ MonoBehaviour:
   bestScoreText: {fileID: 1301683194}
   scoreText: {fileID: 638976596}
   gameOver: 1
+  baseSpeed: 15
+  levelNum: 10
+  levelSpeed: 2
+  speed: 15
   score: 0
 --- !u!4 &524369518
 Transform:
@@ -1239,7 +1243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 260, y: -60}
+  m_AnchoredPosition: {x: 300, y: -70}
   m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &638976596
@@ -1505,7 +1509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 260, y: -20}
+  m_AnchoredPosition: {x: 300, y: -30}
   m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301683194
