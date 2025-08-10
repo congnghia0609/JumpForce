@@ -59,7 +59,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         // (Tùy chọn) Hỗ trợ nhảy khi nhấn chuột hoặc phím Space khi test trên PC.
-        if (Application.isEditor && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        // if (Application.isEditor && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             return true;
         }
